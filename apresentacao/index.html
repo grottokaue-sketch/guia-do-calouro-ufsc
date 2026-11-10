@@ -1367,9 +1367,9 @@ $$('[data-t]').forEach(b=>b.addEventListener('click',()=>{tStop();tTot=tLeft=+b.
 /* QR */
 function makeQR(u){const box=$('#qr');if(!u){box.innerHTML='<div class="ph">Cole abaixo o link do material para gerar o QR code</div>';return}
   try{const q=qrcode(0,'M');q.addData(u);q.make();box.innerHTML=q.createSvgTag(8,2)}catch(e){box.innerHTML='<div class="ph">Não consegui gerar o QR code para esse link.</div>'}}
-const DEF_QR='https://claude.ai/artifact/7HAASxHtKHhyYRBJVuNKiL';let saved=DEF_QR;try{saved=localStorage.getItem('kg-qr')||DEF_QR}catch(e){}
+const DEF_QR='https://grottokaue-sketch.github.io/guia-do-calouro-ufsc/';let saved=DEF_QR;try{saved=localStorage.getItem('kg-qr2')||DEF_QR}catch(e){}
 $('#qrurl').value=saved;makeQR(saved);
-$('#qrurl').addEventListener('input',e=>{const v=e.target.value.trim();makeQR(v);try{localStorage.setItem('kg-qr',v)}catch(er){}});
+$('#qrurl').addEventListener('input',e=>{const v=e.target.value.trim();makeQR(v);try{localStorage.setItem('kg-qr2',v)}catch(er){}});
 
 
 /* ---------- linha do tempo ---------- */
