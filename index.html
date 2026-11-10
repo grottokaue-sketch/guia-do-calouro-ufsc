@@ -3,134 +3,256 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guia do Calouro — De Jaborá à UFSC</title>
+<title>Manual do Calouro — De Jaborá à UFSC</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
 <style>
 :root{--navy:#042c53;--ocean:#143f69;--azure:#3a6ea5;--sky:#9cc3e6;--ice:#d6e6f5;--mist:#eef3f8;--fog:#e1e8ef;--ink:#0e2236;--slate:#5a6b7d;--line:#cfd8e1;--ok:#2e7d5b;
 --fd:'Inter Tight','Helvetica Neue',Arial,sans-serif;--fb:'Inter','Helvetica Neue',Arial,sans-serif;--ease:cubic-bezier(.22,1,.36,1)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font-family:var(--fb);color:var(--ink);background:var(--mist);line-height:1.55;-webkit-font-smoothing:antialiased}
-button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--fb);color:var(--ink);background:var(--mist);line-height:1.6;-webkit-font-smoothing:antialiased}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:none;background:none}
 .wrap{max-width:860px;margin:0 auto;padding:0 20px}
-header.hero{background:var(--navy);color:var(--mist);padding:56px 0 64px;position:relative;overflow:hidden}
+header.hero{background:var(--navy);color:var(--mist);padding:52px 0 60px;position:relative;overflow:hidden}
 header.hero svg{position:absolute;right:-1px;bottom:-1px;width:220px;height:220px;opacity:.7}
 .hero .wrap{position:relative;z-index:1}
 .eyebrow{font:700 12px var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--azure)}
 .hero .eyebrow{color:var(--sky)}
-h1{font:800 clamp(40px,9vw,72px)/1 var(--fd);letter-spacing:-.035em;margin:14px 0 18px}
+h1{font:800 clamp(38px,9vw,68px)/1 var(--fd);letter-spacing:-.035em;margin:14px 0 16px}
 h1 em{font-style:normal;color:var(--sky)}
-.hero p{font-size:18px;color:var(--ice);max-width:560px;position:relative}
-.hero .by{margin-top:22px;font:600 15px var(--fb);color:var(--sky)}
-nav{position:sticky;top:0;z-index:5;background:rgba(238,243,248,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hero p{font-size:18px;color:var(--ice);max-width:600px}
+.hero .by{margin-top:20px;font:600 15px var(--fb);color:var(--sky)}
+.hero .steps{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.hero .steps span{font:700 13px var(--fb);background:rgba(156,195,230,.15);color:#fff;padding:8px 14px;border-radius:999px}
+nav{position:sticky;top:0;z-index:5;background:rgba(238,243,248,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 20px;scrollbar-width:none}
 nav a{white-space:nowrap;text-decoration:none;font:600 14px var(--fb);color:var(--slate);padding:8px 14px;border-radius:999px;transition:.2s}
 nav a.on,nav a:hover{background:var(--navy);color:#fff}
-section{padding:56px 0 8px}
-h2{font:700 clamp(28px,5.5vw,40px)/1.1 var(--fd);letter-spacing:-.02em;color:var(--navy);margin:10px 0 14px}
-.lead{font-size:17px;color:var(--slate);margin-bottom:22px}
+section{padding:52px 0 6px}
+h2{font:700 clamp(28px,5.5vw,40px)/1.1 var(--fd);letter-spacing:-.02em;color:var(--navy);margin:10px 0 12px}
+h3{font:700 20px/1.25 var(--fd);color:var(--navy)}
+.lead{font-size:17px;color:var(--slate);margin-bottom:20px}
 .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}
-/* timeline */
-.tl{position:relative;padding-left:28px}
-.tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--ice)}
-.ti{position:relative;margin-bottom:14px}
-.ti::before{content:"";position:absolute;left:-26px;top:22px;width:14px;height:14px;border-radius:50%;background:var(--ocean);box-shadow:0 0 0 4px var(--mist)}
-.ti .card{padding:16px 18px;cursor:pointer;transition:border-color .2s}
-.ti .card:hover{border-color:var(--azure)}
-.ti b{font:700 18px var(--fd);color:var(--navy);display:block}
-.ti small{font:700 11px var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--azure)}
-.ti p{font-size:15px;color:var(--ink);max-height:0;overflow:hidden;transition:max-height .45s var(--ease),margin .3s}
-.ti.open p{max-height:200px;margin-top:8px}
-.ti.hi::before{background:var(--sky)}
+.quote{border-left:5px solid var(--sky);background:#fff;border-radius:0 16px 16px 0;padding:16px 20px;font:600 18px/1.45 var(--fd);color:var(--navy);margin:18px 0}
+.quote small{display:block;font:500 13px var(--fb);color:var(--slate);margin-top:6px}
+/* atos */
+.acts{display:grid;gap:12px}
+@media(min-width:680px){.acts{grid-template-columns:repeat(3,1fr)}}
+.act{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}
+.act b{font:800 28px var(--fd);color:var(--sky)}
+.act h3{margin:2px 0 4px}.act p{font-size:15px;color:var(--slate)}
+.act.c{background:var(--navy);border-color:var(--navy)}.act.c h3{color:#fff}.act.c p{color:var(--ice)}
+/* fases */
+.phase{background:#fff;border:1px solid var(--line);border-radius:20px;margin-bottom:12px;overflow:hidden}
+.phase>button{width:100%;display:flex;gap:16px;align-items:center;text-align:left;padding:18px 20px}
+.phase .n{flex:none;width:46px;height:46px;border-radius:14px;background:var(--navy);color:var(--sky);display:grid;place-items:center;font:800 18px var(--fd)}
+.phase .t{flex:1}.phase .t small{display:block;font:700 11px var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--azure)}
+.phase .t b{font:700 19px/1.2 var(--fd);color:var(--navy)}
+.phase .ar{font-size:22px;color:var(--slate);transition:transform .3s}
+.phase.open .ar{transform:rotate(180deg)}
+.phase .body{display:none;padding:0 20px 20px}
+.phase.open .body{display:block}
+.duo{display:grid;gap:12px}
+@media(min-width:680px){.duo{grid-template-columns:1fr 1fr}}
+.box{border-radius:16px;padding:16px}
+.box.me{background:var(--mist)}.box.you{background:var(--ice)}
+.box .k{font:700 11px var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--azure);margin-bottom:6px}
+.box ul{margin-left:18px;font-size:15px}.box li{margin-bottom:5px}
+.sign{margin-top:12px;font-size:15px;color:var(--ocean);font-weight:600;background:#fff;border:1px dashed var(--sky);border-radius:12px;padding:10px 14px}
+/* oportunidades */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.op{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.op .ic{font-size:26px}
+.op p{font-size:15px}
+.op .g{font-size:14px;color:var(--ocean);font-weight:600}
+.op .tag{align-self:flex-start;font:700 11px var(--fb);letter-spacing:.1em;text-transform:uppercase;background:var(--navy);color:var(--sky);padding:4px 10px;border-radius:999px}
+.note{font-size:14px;color:var(--slate);margin-top:12px}
+/* dicas numeradas */
+.tips{display:grid;gap:10px;counter-reset:t}
+.tip{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px 16px 62px;position:relative}
+.tip::before{counter-increment:t;content:counter(t);position:absolute;left:16px;top:16px;width:32px;height:32px;border-radius:10px;background:var(--ocean);color:#fff;display:grid;place-items:center;font:800 15px var(--fd)}
+.tip b{display:block;color:var(--navy);font-family:var(--fd);font-size:17px}
+.tip span{font-size:15px}
 /* quiz */
 .quiz .q{display:none}.quiz .q.on{display:block;animation:in .45s var(--ease)}
 @keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 .qhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font:600 13px var(--fb);color:var(--slate)}
 .qbar{height:6px;background:var(--fog);border-radius:9px;overflow:hidden;margin-bottom:18px}.qbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ocean),var(--sky));transition:width .4s var(--ease)}
-.q h3{font:700 22px/1.25 var(--fd);color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;background:var(--mist);border:2px solid transparent;border-radius:14px;padding:14px 16px;margin-bottom:10px;font:500 16px var(--fb);color:var(--ink);transition:.15s}
+.q h3{font-size:22px;margin-bottom:14px}
+.opt{display:block;width:100%;text-align:left;background:var(--mist);border:2px solid transparent;border-radius:14px;padding:14px 16px;margin-bottom:10px;font:500 16px var(--fb);transition:.15s}
 .opt:hover{border-color:var(--azure);background:#fff}
-.opt:active{transform:scale(.98)}
 .result{display:none}.result.on{display:block;animation:in .5s var(--ease)}
 .result .tag{display:inline-block;background:var(--navy);color:var(--sky);font:700 12px var(--fb);letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
-.result h3{font:800 34px/1.05 var(--fd);color:var(--navy);margin:12px 0 8px;letter-spacing:-.02em}
-.result ul{margin:12px 0 0 18px}.result li{margin-bottom:6px}
-.bars{margin:18px 0}.bars div{display:grid;grid-template-columns:150px 1fr 36px;gap:10px;align-items:center;font:600 13px var(--fb);color:var(--slate);margin-bottom:8px}
-.bars span.b{height:10px;background:var(--fog);border-radius:9px;overflow:hidden}.bars span.b i{display:block;height:100%;background:var(--azure);border-radius:9px;transition:width .6s var(--ease)}
-.btn{display:inline-flex;align-items:center;gap:8px;font:700 15px var(--fb);padding:12px 20px;border-radius:999px;background:var(--ocean);color:#fff;transition:.15s}
+.result h3{font:800 34px/1.05 var(--fd);margin:12px 0 8px;letter-spacing:-.02em}
+.result ul{margin:10px 0 0 18px}.result li{margin-bottom:6px}
+.bars{margin:16px 0}.bars div{display:grid;grid-template-columns:150px 1fr 40px;gap:10px;align-items:center;font:600 13px var(--fb);color:var(--slate);margin-bottom:8px}
+.bars span.b{height:10px;background:var(--fog);border-radius:9px;overflow:hidden}.bars span.b i{display:block;height:100%;background:var(--azure);border-radius:9px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 15px var(--fb);padding:12px 20px;border-radius:999px;background:var(--ocean);color:#fff;text-decoration:none;transition:.15s}
 .btn:hover{background:var(--azure)}.btn.ghost{background:transparent;color:var(--ocean);box-shadow:inset 0 0 0 2px var(--ocean)}.btn.ghost:hover{background:var(--ice)}
-/* plan */
-.plan{display:grid;gap:14px}
-.pcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px}
+/* rota */
+.plan{display:grid;gap:12px}
+@media(min-width:720px){.plan{grid-template-columns:1fr 1fr 1fr}}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
 .pcard.long{background:var(--ice);border-color:var(--ice)}
 .pcard small{font:700 11px var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--azure)}
-.pcard h3{font:700 22px var(--fd);color:var(--navy);margin:4px 0 4px}
-.pcard p{font-size:14px;color:var(--slate);margin-bottom:10px}
-textarea{width:100%;min-height:96px;resize:vertical;font:500 16px/1.5 var(--fb);color:var(--ink);border:2px solid var(--line);border-radius:14px;padding:12px 14px;background:#fff}
+.pcard h3{margin:4px 0}.pcard p{font-size:14px;color:var(--slate);margin-bottom:10px}
+textarea{width:100%;min-height:92px;resize:vertical;font:500 16px/1.5 var(--fb);border:2px solid var(--line);border-radius:14px;padding:12px 14px;background:#fff}
 textarea:focus{outline:none;border-color:var(--azure)}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px}
+label.ql{display:block;font:700 16px var(--fd);color:var(--navy);margin:16px 0 6px}
 .saved{font:600 13px var(--fb);color:var(--ok);opacity:0;transition:.3s}.saved.on{opacity:1}
 /* checklist */
-.prog{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.prog{display:flex;align-items:center;gap:14px;margin-bottom:14px}
 .prog .b{flex:1;height:12px;background:var(--fog);border-radius:9px;overflow:hidden}.prog .b i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ocean),var(--azure));transition:width .5s var(--ease)}
 .prog b{font:800 22px var(--fd);color:var(--ocean);min-width:56px;text-align:right}
-.chk{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:10px;cursor:pointer;transition:.2s;text-align:left;width:100%}
-.chk .box{flex:none;width:26px;height:26px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;color:#fff;font-weight:800;transition:.2s}
-.chk.done{background:var(--mist)}.chk.done .box{background:var(--ok);border-color:var(--ok)}
+.chk{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:10px;text-align:left;width:100%;transition:.2s}
+.chk .box2{flex:none;width:26px;height:26px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;color:#fff;font-weight:800}
+.chk.done{background:var(--mist)}.chk.done .box2{background:var(--ok);border-color:var(--ok)}
 .chk.done .t{color:var(--slate);text-decoration:line-through}
-.chk .t{font:500 16px/1.45 var(--fb)}.chk .t small{display:block;color:var(--slate);font-size:13px;margin-top:2px;text-decoration:none}
-/* methods */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.m{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
-.m .ic{width:40px;height:40px;border-radius:12px;background:var(--navy);color:var(--sky);display:grid;place-items:center;font:800 18px var(--fd);margin-bottom:12px}
-.m h3{font:700 19px var(--fd);color:var(--navy);margin-bottom:6px}.m p{font-size:15px;color:var(--ink)}
-.m p.u{margin-top:8px;font-size:14px;color:var(--ocean);font-weight:600}
-.qs{background:var(--navy);color:var(--mist);border-radius:24px;padding:28px}
-.qs li{list-style:none;font:600 20px/1.35 var(--fd);padding:14px 0;border-bottom:1px solid rgba(156,195,230,.2);display:flex;gap:14px}
-.qs li:last-child{border:none}.qs li span{color:var(--sky);font-size:14px;padding-top:4px}
-footer{background:var(--navy);color:var(--ice);margin-top:64px;padding:40px 0 56px}
+.chk .t{font:500 16px/1.45 var(--fb)}.chk .t small{display:block;color:var(--slate);font-size:13px;margin-top:2px}
+.chk .ph{flex:none;font:700 11px var(--fb);color:var(--azure);background:var(--ice);padding:3px 8px;border-radius:999px;margin-left:auto;white-space:nowrap}
+footer{background:var(--navy);color:var(--ice);margin-top:60px;padding:40px 0 56px}
 footer h2{color:var(--mist)}
 footer .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 footer .pills span{background:rgba(156,195,230,.15);padding:10px 16px;border-radius:999px;font:600 15px var(--fb)}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--navy);color:#fff;padding:12px 18px;border-radius:12px;font:600 14px var(--fb);opacity:0;transition:.3s;pointer-events:none;z-index:9}.toast.on{opacity:1;transform:translate(-50%,0)}
-@media (min-width:720px){.plan{grid-template-columns:1fr 1fr 1fr}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 <header class="hero">
-  <svg viewBox="0 0 260 260" aria-hidden="true"><path d="M0 260 A260 260 0 0 1 260 0 L260 87 A173 173 0 0 0 87 260 Z" fill="#143f69"/></svg>
+  <svg viewBox="0 0 220 220" aria-hidden="true"><path d="M0 220 A220 220 0 0 1 220 0 L220 73 A147 147 0 0 0 73 220 Z" fill="#143f69"/></svg>
   <div class="wrap">
-    <div class="eyebrow">Engenharia Química · UFSC · Guia do calouro</div>
+    <div class="eyebrow">Engenharia Química · UFSC · Manual do calouro</div>
     <h1>De Jaborá <em>à UFSC</em></h1>
-    <p>O material da palestra para você levar no bolso: a história, um teste de perfil, o seu plano de curto, médio e longo prazo e um checklist do primeiro ano.</p>
+    <p>Um manual prático para usar os próximos cinco anos a seu favor, a partir de uma trajetória real: o que eu fiz, o que eu faria de novo e o que você pode fazer desde o primeiro semestre.</p>
+    <div class="steps"><span>01 Descobrir</span><span>02 Testar</span><span>03 Consolidar</span></div>
     <div class="by">Kaue Grotto · Fundação CERTI</div>
   </div>
 </header>
 <nav><div class="wrap">
-  <a href="#historia">A história</a><a href="#perfil">Teste de perfil</a><a href="#rota">Minha rota</a><a href="#checklist">Checklist</a><a href="#metodos">Métodos</a><a href="#perguntas">Perguntas</a>
+  <a href="#ideia">A ideia</a><a href="#fases">Semestre a semestre</a><a href="#oportunidades">Oportunidades</a><a href="#seletivo">Processo seletivo</a><a href="#estudo">Estudo</a><a href="#tombos">Tombos</a><a href="#marca">Sua marca</a><a href="#perfil">Seu perfil</a><a href="#rota">Sua rota</a><a href="#checklist">Checklist</a>
 </div></nav>
 
 <main class="wrap">
-<section id="historia">
-  <div class="eyebrow">01 · A história em 1 minuto</div>
-  <h2>Do interior de SC à UFSC</h2>
-  <p class="lead">Toque em cada etapa para ver os detalhes.</p>
-  <div class="tl">
-    <div class="ti"><div class="card"><small>Origem</small><b>Jaborá (SC), ≈ 4 mil habitantes</b><p>Escola pública, família de classe média. Um dos primeiros e únicos da família a entrar numa federal. Eu corrigia as minhas próprias provas: o ensino era básico demais e eu precisava ir além.</p></div></div>
-    <div class="ti"><div class="card"><small>9ª série e 16 anos</small><b>Primeiras viradas de chave</b><p>Jovens Embaixadores, nos Estados Unidos. Depois, a Latin American Leadership Academy, em São Paulo: empreendedorismo, inovação, negócios de impacto e, principalmente, autoconhecimento.</p></div></div>
-    <div class="ti"><div class="card"><small>Ensino médio</small><b>Cursinho online e uma nota ruim</b><p>Sem cursinho na cidade, estudei online das 5h às 18h e fazia o ensino médio à noite. Um ano de estudo, ansiedade demais e uma nota ruim no ENEM. A frustração virou combustível.</p></div></div>
-    <div class="ti"><div class="card"><small>2º e 3º anos</small><b>Método e @estudes.kg</b><p>Simulados semanais, redação três vezes por semana, flashcards. Comecei a ensinar no Instagram, virei embaixador de plataformas de estudo e fiz minhas primeiras mentorias.</p></div></div>
-    <div class="ti hi"><div class="card"><small>Aprovação</small><b>UFSC, UFPR, UTFPR, UDESC e particulares</b><p>Escolhi Engenharia Química na UFSC, o sonho desde a nona série.</p></div></div>
-    <div class="ti"><div class="card"><small>Na UFSC</small><b>Empresa júnior → startup → laboratório</b><p>CONAQ (trainee, efetivação, prêmios e projetos de produto), 8 meses numa fintech com +300 clientes na carteira como estagiário e 6 meses de iniciação científica no LATESC, onde descobri que a IC não era o meu caminho.</p></div></div>
-    <div class="ti hi"><div class="card"><small>Hoje</small><b>Fundação CERTI</b><p>Entrei como estagiário, fui contratado para gerir o Programa Gênese e hoje sou gestor do Programa Sinergia.</p></div></div>
+
+<section id="ideia">
+  <div class="eyebrow">01 · A ideia</div>
+  <h2>A UFSC não é só onde você vai se formar engenheiro(a)</h2>
+  <p class="lead">É onde você pode descobrir, testar e consolidar quem você é. Eu saí de Jaborá, uma cidade de cerca de 4 mil habitantes, e fui um dos primeiros da família numa universidade federal. Tudo o que construí depois começou aqui dentro.</p>
+  <div class="acts">
+    <div class="act"><b>01</b><h3>Descobrir</h3><p>Entender o que te dá energia, o que te drena e como você aprende melhor.</p></div>
+    <div class="act"><b>02</b><h3>Testar</h3><p>Usar a universidade como laboratório: empresa júnior, pesquisa, estágio, startup.</p></div>
+    <div class="act c"><b>03</b><h3>Consolidar</h3><p>Escolher o que funcionou e aprofundar até virar carreira.</p></div>
+  </div>
+  <div class="quote">Esses cinco anos desenham a sua rota. Dá para mudar no meio do caminho, mas é bem mais trabalhoso. Por isso, comece a se conhecer desde já.<small>Kaue Grotto</small></div>
+</section>
+
+<section id="fases">
+  <div class="eyebrow">02 · Semestre a semestre</div>
+  <h2>Um roteiro para os próximos cinco anos</h2>
+  <p class="lead">Toque em cada etapa. Em cada uma: o que eu fiz, o que você pode fazer e um sinal de que você está no caminho certo. As fases são sugestões, não regras: cada rota tem o seu ritmo.</p>
+
+  <div class="phase open"><button><span class="n">1</span><span class="t"><small>1º semestre · Descobrir</small><b>Construir a base</b></span><span class="ar">⌄</span></button><div class="body"><div class="duo">
+    <div class="box me"><div class="k">O que eu fiz</div><ul><li>Primeiro semestre ainda na pandemia, focado só nos estudos, sem extracurriculares.</li><li>Pré-cálculo e química básica foram fundamentais: eu chegava sem base.</li><li>As aulas de Introdução à Engenharia Química me mostraram o tamanho do mercado.</li></ul></div>
+    <div class="box you"><div class="k">O que você pode fazer</div><ul><li>Montar uma rotina semanal fixa, com revisão e listas antes da prova.</li><li>Garantir cálculo e química: são a fundação do resto do curso.</li><li>Conhecer o centro acadêmico e a empresa júnior, mesmo sem entrar ainda.</li><li>Conversar com veteranos de áreas diferentes.</li></ul></div>
+  </div><div class="sign">Sinal de que está no caminho: o ritmo do curso está sob controle e você já tem curiosidade por alguma área.</div></div></div>
+
+  <div class="phase"><button><span class="n">2</span><span class="t"><small>A partir do 2º semestre · Testar</small><b>Primeiro teste: a empresa júnior</b></span><span class="ar">⌄</span></button><div class="body"><div class="duo">
+    <div class="box me"><div class="k">O que eu fiz</div><ul><li>Entrei na CONAQ pelo processo seletivo e fiz 3 a 4 meses de trainee, com projeto fictício.</li><li>Assumi papéis que não eram do trainee. Fui efetivado, virei gerente de execução e ganhei prêmios de melhor trainee e de destaque em social media.</li><li>Toquei projetos reais de produto: área pet, carnes, massinhas de modelar.</li></ul></div>
+    <div class="box you"><div class="k">O que você pode fazer</div><ul><li>Se inscrever no próximo processo seletivo da empresa júnior.</li><li>Tratar o trainee como um emprego: entregar além do pedido.</li><li>Experimentar áreas diferentes: projetos, comercial, marketing, gestão.</li></ul></div>
+  </div><div class="sign">Sinal: trabalhar com clientes e prazos te dá energia, e você quer mais responsabilidade.</div></div></div>
+
+  <div class="phase"><button><span class="n">3</span><span class="t"><small>Meio do curso · Testar</small><b>Segundo teste: o ritmo do mercado</b></span><span class="ar">⌄</span></button><div class="body"><div class="duo">
+    <div class="box me"><div class="k">O que eu fiz</div><ul><li>Fiquei 8 meses numa startup, uma fintech de crédito para saúde.</li><li>Como estagiário, cuidava de uma carteira de mais de 300 clientes, que somava mais de R$ 300 mil por mês de faturamento bruto.</li><li>Foi esgotante, mas ganhei comunicação e raciocínio rápido.</li></ul></div>
+    <div class="box you"><div class="k">O que você pode fazer</div><ul><li>Procurar estágio ou startup, mesmo fora do eixo clássico da engenharia.</li><li>Medir o que você aprendeu com números: clientes, entregas, resultados.</li><li>Saber a hora de sair: quando já aprendeu o suficiente, siga para o próximo teste.</li></ul></div>
+  </div><div class="sign">Sinal: você aprende rápido sob pressão e gosta de ver resultado concreto.</div></div></div>
+
+  <div class="phase"><button><span class="n">4</span><span class="t"><small>Meio do curso · Testar</small><b>Terceiro teste: o laboratório</b></span><span class="ar">⌄</span></button><div class="body"><div class="duo">
+    <div class="box me"><div class="k">O que eu fiz</div><ul><li>Fiz 6 meses de iniciação científica no LATESC: extração de juçara para obter bioativos e um pouco de polímeros.</li><li>Descobri que a pesquisa não era o meu caminho. E isso também foi resultado.</li></ul></div>
+    <div class="box you"><div class="k">O que você pode fazer</div><ul><li>Conversar com professores sobre as linhas de pesquisa e vagas de IC.</li><li>Dar uma chance real, de pelo menos um semestre.</li><li>Anotar o que te anima e o que te cansa no dia a dia do laboratório.</li></ul></div>
+  </div><div class="sign">Sinal: você perde a noção do tempo testando hipóteses. Se não, ótimo: um caminho a menos para testar.</div></div></div>
+
+  <div class="phase"><button><span class="n">5</span><span class="t"><small>Reta final · Consolidar</small><b>Escolher e aprofundar</b></span><span class="ar">⌄</span></button><div class="body"><div class="duo">
+    <div class="box me"><div class="k">O que eu fiz</div><ul><li>Em 2023, entrei como estagiário na Fundação CERTI. Consultoria e inovação brilharam os meus olhos.</li><li>Estudei muito por conta própria (cursos e livros) e fiz mentorias do Impetus, na UFSC.</li><li>No segundo ano de estágio, criei uma metodologia de workshop, um curso e a Academia Gênese.</li><li>Fui contratado em 2025, assumi a gestão do Programa Gênese e hoje estou à frente do Programa Sinergia.</li></ul></div>
+    <div class="box you"><div class="k">O que você pode fazer</div><ul><li>Escolher o estágio na área que você testou e gostou.</li><li>Estudar além da grade sobre essa área: cursos, livros, pessoas.</li><li>Buscar um mentor ou uma mentora.</li><li>Entregar sempre um quê a mais: é isso que vira contratação.</li></ul></div>
+  </div><div class="sign">Sinal: as pessoas começam a te procurar por aquilo que você faz bem.</div></div></div>
+
+  <div class="phase"><button><span class="n">6</span><span class="t"><small>Fechando o ciclo</small><b>Devolver e fechar com propósito</b></span><span class="ar">⌄</span></button><div class="body"><div class="duo">
+    <div class="box me"><div class="k">O que eu fiz</div><ul><li>Fui selecionado para o Projeto Rondon. Em janeiro de 2027, passo um mês numa comunidade do Piauí otimizando processos produtivos, como a cajuína e o aproveitamento de alimentos.</li></ul></div>
+    <div class="box you"><div class="k">O que você pode fazer</div><ul><li>Participar de um projeto de extensão ou de impacto social.</li><li>Alinhar o TCC com a rota que você escolheu.</li><li>Ajudar quem está chegando: virar o veterano que você queria ter tido.</li></ul></div>
+  </div><div class="sign">Sinal: você olha para trás e reconhece a sua marca em cada etapa.</div></div></div>
+</section>
+
+<section id="oportunidades">
+  <div class="eyebrow">03 · Mapa de oportunidades</div>
+  <h2>Onde testar dentro (e a partir) da UFSC</h2>
+  <p class="lead">Cada uma desenvolve habilidades diferentes. Escolha pelo que você quer descobrir sobre si.</p>
+  <div class="grid">
+    <div class="op"><span class="ic">🏢</span><h3>Empresa júnior</h3><p>Projetos reais para clientes reais, ainda na graduação. No curso, é a CONAQ.</p><span class="g">Desenvolve: protagonismo, gestão, comunicação</span><span class="tag">Eu fiz</span></div>
+    <div class="op"><span class="ic">🔬</span><h3>Iniciação científica</h3><p>Pesquisa num laboratório do departamento, com orientação de um professor.</p><span class="g">Desenvolve: método, base técnica, paciência</span><span class="tag">Eu fiz</span></div>
+    <div class="op"><span class="ic">💼</span><h3>Estágio</h3><p>Indústria, consultoria, instituições de inovação. A ponte mais direta para a carreira.</p><span class="g">Desenvolve: ritmo de mercado, entrega, rede</span><span class="tag">Eu fiz</span></div>
+    <div class="op"><span class="ic">🚀</span><h3>Startups</h3><p>Ambiente rápido, com muita responsabilidade cedo.</p><span class="g">Desenvolve: agilidade, raciocínio, comunicação</span><span class="tag">Eu fiz</span></div>
+    <div class="op"><span class="ic">🧭</span><h3>Mentoria</h3><p>Programas de mentoria e conversas com profissionais. Eu participei do Impetus.</p><span class="g">Desenvolve: autoconhecimento, clareza de rota</span><span class="tag">Eu fiz</span></div>
+    <div class="op"><span class="ic">🌱</span><h3>Extensão e impacto</h3><p>Projetos com comunidades, como o Projeto Rondon.</p><span class="g">Desenvolve: senso social, engenharia aplicada</span><span class="tag">Eu fiz</span></div>
+    <div class="op"><span class="ic">🎓</span><h3>Centro acadêmico</h3><p>Organização de eventos e representação dos estudantes. No curso, é o CALEQA.</p><span class="g">Desenvolve: liderança, articulação</span></div>
+    <div class="op"><span class="ic">🎤</span><h3>Eventos e semanas acadêmicas</h3><p>Palestras, visitas técnicas e feiras: ótimo para conhecer áreas e pessoas.</p><span class="g">Desenvolve: repertório, rede</span></div>
+  </div>
+  <p class="note">Datas, editais e processos seletivos mudam a cada semestre: acompanhe os canais oficiais do curso, do centro acadêmico e da empresa júnior.</p>
+</section>
+
+<section id="seletivo">
+  <div class="eyebrow">04 · Processo seletivo</div>
+  <h2>Como se destacar numa seleção</h2>
+  <p class="lead">O que mais pesa quando alguém avalia você: proatividade e protagonismo.</p>
+  <div class="tips">
+    <div class="tip"><b>Faça o projeto fictício como se fosse real</b><span>No trainee, quem trata o teste como trabalho de verdade aparece.</span></div>
+    <div class="tip"><b>Pegue o que não é só seu</b><span>Eu assumia papéis de diretoria ainda como trainee. Ofereça-se antes de ser chamado(a).</span></div>
+    <div class="tip"><b>Comunique com clareza</b><span>Saber explicar e vender o que você faz conta tanto quanto saber fazer.</span></div>
+    <div class="tip"><b>Mostre resultados com números</b><span>"Cuidei de 300 clientes" diz mais do que "tenho responsabilidade".</span></div>
+    <div class="tip"><b>Faça com afeto</b><span>As pessoas sentem quando você se importa com o que entrega.</span></div>
+  </div>
+</section>
+
+<section id="estudo">
+  <div class="eyebrow">05 · Estudo</div>
+  <h2>Métodos que me trouxeram até aqui</h2>
+  <div class="tips">
+    <div class="tip"><b>Rotina fixa</b><span>No vestibular, eu estudava das 5h às 18h. O que mais contou foi a constância. Na faculdade, reserve blocos fixos de estudo, como se fossem aulas.</span></div>
+    <div class="tip"><b>Simulado toda semana</b><span>Resolva provas antigas e listas antes da prova, com tempo, para saber onde você está.</span></div>
+    <div class="tip"><b>Flashcards e revisão espaçada</b><span>Fórmulas, conceitos e definições viram cartões revisados em intervalos.</span></div>
+    <div class="tip"><b>Ensine o que aprendeu</b><span>O meu Instagram de estudos me fez aprender mais do que qualquer cursinho. Monte grupos em que cada um explica um tema.</span></div>
+  </div>
+</section>
+
+<section id="tombos">
+  <div class="eyebrow">06 · Tombos</div>
+  <h2>Quando der errado (e vai dar)</h2>
+  <div class="quote">Estudei um ano inteiro e tirei nota ruim no ENEM. Eu tinha colocado pressão demais em mim. A frustração virou combustível, e foi aí que eu fui buscar método.<small>Kaue Grotto</small></div>
+  <div class="tips">
+    <div class="tip"><b>Pressão sem método vira ansiedade</b><span>Divida o que parece enorme em partes e planeje a semana.</span></div>
+    <div class="tip"><b>Testar e descartar é avançar</b><span>A iniciação científica me mostrou o que eu não queria. Descobrir isso cedo economiza anos.</span></div>
+    <div class="tip"><b>Peça ajuda cedo</b><span>Monitores, veteranos e professores existem para isso. Mentoria encurta caminhos.</span></div>
+  </div>
+</section>
+
+<section id="marca">
+  <div class="eyebrow">07 · Sua marca</div>
+  <h2>O seu "jeitinho" é o seu diferencial</h2>
+  <p class="lead">Todo mundo que passava por um projeto meu sabia que eu tinha passado por ali, no design, na metodologia ou na operação. O diferencial de mercado se constrói experiência por experiência.</p>
+  <div class="tips">
+    <div class="tip"><b>Escolha a sua assinatura</b><span>O que você faz com mais cuidado do que a média? Repita isso em tudo.</span></div>
+    <div class="tip"><b>Cuide do LinkedIn desde já</b><span>Foto clara, um título que diga o que você busca e um "sobre" que conte a sua trajetória.</span></div>
+    <div class="tip"><b>Registre as conquistas na hora</b><span>Anote números e resultados de cada experiência. Na hora do currículo, você vai precisar deles.</span></div>
+    <div class="tip"><b>Mostre o caminho, não só o destino</b><span>Contar a sua jornada gera conexão, com recrutadores e com quem vem depois de você.</span></div>
   </div>
 </section>
 
 <section id="perfil">
-  <div class="eyebrow">02 · Teste rápido</div>
+  <div class="eyebrow">08 · Teste rápido</div>
   <h2>Qual é o seu perfil hoje?</h2>
-  <p class="lead">Seis perguntas, sem resposta certa. O objetivo é se conhecer um pouco melhor.</p>
+  <p class="lead">Seis perguntas, sem resposta certa. O resultado sugere por onde começar a testar.</p>
   <div class="card quiz" id="quiz">
     <div class="qhead"><span id="qn">Pergunta 1 de 6</span><button class="btn ghost" style="padding:6px 12px;font-size:13px" id="qback">← voltar</button></div>
     <div class="qbar"><i id="qbar"></i></div>
@@ -140,61 +262,43 @@ footer .pills span{background:rgba(156,195,230,.15);padding:10px 16px;border-rad
       <h3 id="rname"></h3>
       <p id="rdesc"></p>
       <div class="bars" id="rbars"></div>
-      <b style="font-family:var(--fd);color:var(--navy)">Experiências para testar primeiro</b>
+      <b style="font-family:var(--fd);color:var(--navy)">Por onde começar a testar</b>
       <ul id="rtry"></ul>
-      <div class="row"><button class="btn" id="qagain">Refazer o teste</button><a class="btn ghost" href="#rota" style="text-decoration:none">Montar minha rota →</a></div>
+      <div class="row"><button class="btn" id="qagain">Refazer o teste</button><a class="btn ghost" href="#rota">Montar minha rota →</a></div>
     </div>
   </div>
 </section>
 
 <section id="rota">
-  <div class="eyebrow">03 · A dinâmica</div>
-  <h2>Minha rota</h2>
-  <p class="lead">Escreva uma ou duas linhas por prazo. Fica salvo neste aparelho; use o botão para copiar e guardar onde quiser.</p>
-  <div class="plan">
-    <div class="pcard"><small>Curto prazo</small><h3>Este ano</h3><p>O que você quer experimentar? Uma EJ, um laboratório, um projeto?</p><textarea data-k="curto" placeholder="Ex.: entrar no processo seletivo da empresa júnior"></textarea></div>
-    <div class="pcard"><small>Médio prazo</small><h3>Até a metade do curso</h3><p>Que área quer testar de verdade? Que habilidade quer dominar?</p><textarea data-k="medio" placeholder="Ex.: fazer estágio numa startup"></textarea></div>
-    <div class="pcard long"><small>Longo prazo</small><h3>Na formatura</h3><p>Como você quer ser reconhecido(a) quando sair daqui?</p><textarea data-k="longo" placeholder="Ex.: ser referência em processos sustentáveis"></textarea></div>
+  <div class="eyebrow">09 · Mão na massa</div>
+  <h2>Sua rota</h2>
+  <p class="lead">Responda com calma. Fica salvo neste aparelho; use o botão para copiar e guardar onde quiser.</p>
+  <div class="card">
+    <label class="ql" for="q1">Como você quer ser reconhecido(a)?</label><textarea id="q1" data-k="q1"></textarea>
+    <label class="ql" for="q2">Que legado e que história você quer deixar?</label><textarea id="q2" data-k="q2"></textarea>
+    <label class="ql" for="q3">O que vai brilhar os olhos de quem ler o seu currículo?</label><textarea id="q3" data-k="q3"></textarea>
   </div>
-  <div class="row"><button class="btn" id="copyplan">Copiar meu plano</button><button class="btn ghost" id="clearplan">Limpar</button><span class="saved" id="saved">✓ salvo neste aparelho</span></div>
+  <div class="plan" style="margin-top:14px">
+    <div class="pcard"><small>Curto prazo</small><h3>Este ano</h3><p>O que você quer experimentar primeiro?</p><textarea data-k="curto" placeholder="Ex.: entrar no processo seletivo da empresa júnior"></textarea></div>
+    <div class="pcard"><small>Médio prazo</small><h3>Até a metade do curso</h3><p>Que área quer testar de verdade?</p><textarea data-k="medio" placeholder="Ex.: fazer estágio numa startup"></textarea></div>
+    <div class="pcard long"><small>Longo prazo</small><h3>Na formatura</h3><p>Como você quer sair daqui?</p><textarea data-k="longo" placeholder="Ex.: ser referência em processos sustentáveis"></textarea></div>
+  </div>
+  <div class="row"><button class="btn" id="copyplan">Copiar minha rota</button><button class="btn ghost" id="clearplan">Limpar</button><span class="saved" id="saved">✓ salvo neste aparelho</span></div>
 </section>
 
 <section id="checklist">
-  <div class="eyebrow">04 · Primeiro ano</div>
+  <div class="eyebrow">10 · Primeiro ano</div>
   <h2>Checklist do calouro</h2>
   <p class="lead">Toque para marcar. Não precisa fazer tudo no primeiro semestre.</p>
   <div class="prog"><div class="b"><i id="pbar"></i></div><b id="ppct">0%</b></div>
   <div id="chks"></div>
-</section>
-
-<section id="metodos">
-  <div class="eyebrow">05 · O que funcionou para mim</div>
-  <h2>Métodos que me trouxeram até aqui</h2>
-  <div class="grid">
-    <div class="m"><div class="ic">1</div><h3>Rotina fixa</h3><p>No vestibular, eu estudava das 5h às 18h. Mais que o volume, o que contou foi a constância.</p><p class="u">Na faculdade: blocos fixos de estudo na semana, como se fossem aulas.</p></div>
-    <div class="m"><div class="ic">2</div><h3>Simulado toda semana</h3><p>Testar o que eu sabia, com tempo, mostrava onde eu realmente estava.</p><p class="u">Na faculdade: resolva provas antigas e listas antes da prova, não só depois.</p></div>
-    <div class="m"><div class="ic">3</div><h3>Flashcards e revisão</h3><p>Revisar em intervalos me ajudou a lembrar mais estudando menos.</p><p class="u">Na faculdade: fórmulas, conceitos e definições viram cartões.</p></div>
-    <div class="m"><div class="ic">4</div><h3>Ensinar o que aprendeu</h3><p>O @estudes.kg me fez aprender mais do que qualquer cursinho.</p><p class="u">Na faculdade: grupos de estudo onde cada um explica um tema.</p></div>
-    <div class="m"><div class="ic">5</div><h3>Método contra a ansiedade</h3><p>Quando eu fui mal, o problema não era falta de esforço: era excesso de pressão sem método.</p><p class="u">Na faculdade: planeje a semana e divida o que parece enorme.</p></div>
-    <div class="m"><div class="ic">6</div><h3>Protagonismo</h3><p>Na empresa júnior, eu pegava papéis que não eram do trainee. É isso que mais se nota.</p><p class="u">Na faculdade: ofereça-se antes de ser chamado(a).</p></div>
-  </div>
-</section>
-
-<section id="perguntas">
-  <div class="eyebrow">06 · Para levar</div>
-  <h2>O que você quer ser quando crescer, como profissional?</h2>
-  <ul class="qs">
-    <li><span>01</span>Como você quer ser reconhecido(a)?</li>
-    <li><span>02</span>Que legado e que história você quer deixar?</li>
-    <li><span>03</span>O que vai brilhar os olhos de quem ler o seu currículo?</li>
-  </ul>
 </section>
 </main>
 
 <footer><div class="wrap">
   <div class="eyebrow" style="color:var(--sky)">Vamos conversar</div>
   <h2>A rota é de vocês.</h2>
-  <p>Se essa história fez sentido para você, me chama. Vou gostar de saber qual rota você escolheu.</p>
+  <p>Eu saí de uma cidade de 4 mil habitantes. Vocês já estão aqui. A pergunta não é se vocês vão chegar longe. É que marca vocês vão deixar no caminho.</p>
   <div class="pills"><span>Instagram · @kauegrotto</span><span>LinkedIn · Kaue Grotto</span></div>
 </div></footer>
 <div class="toast" id="toast"></div>
@@ -202,21 +306,17 @@ footer .pills span{background:rgba(156,195,230,.15);padding:10px 16px;border-rad
 <script>
 (()=>{
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const store={get(k,d){try{const v=localStorage.getItem('kgm-'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('kgm-'+k,JSON.stringify(v))}catch(e){}}};
+const store={get(k,d){try{const v=localStorage.getItem('kgman-'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('kgman-'+k,JSON.stringify(v))}catch(e){}}};
 function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2200)}
 
-/* timeline */
-$$('.ti').forEach(t=>t.addEventListener('click',()=>t.classList.toggle('open')));
+$$('.phase>button').forEach(b=>b.addEventListener('click',()=>b.parentNode.classList.toggle('open')));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)$$('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))})},{rootMargin:'-40% 0px -55% 0px'});$$('main section').forEach(s=>io.observe(s));
 
-/* nav highlight */
-const secs=$$('main section');const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){$$('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-40% 0px -55% 0px'});secs.forEach(s=>io.observe(s));
-
-/* quiz */
 const P=[
- {n:'Comunicador(a)',d:'Você ganha energia explicando, apresentando e conectando pessoas. Sua força é fazer os outros entenderem e confiarem no que você faz.',t:['Processo seletivo da empresa júnior, em áreas de projetos ou marketing','Apresentar trabalhos e seminários sempre que puder','Ajudar a organizar um evento do curso']},
- {n:'Negociador(a)',d:'Você gosta de convencer, vender ideias e fechar acordos. Sua força é transformar conversa em resultado.',t:['Área comercial de uma empresa júnior','Estágio numa startup, perto de clientes','Competições de negócios e de inovação']},
- {n:'Criador(a) de laboratório',d:'Você se concentra fácil, gosta de testar hipóteses e de entender a fundo como as coisas funcionam.',t:['Conversar com professores sobre iniciação científica','Visitar laboratórios do departamento','Ler um artigo científico por mês da área que te interessa']},
- {n:'Planejador(a)-executor(a)',d:'Você organiza, cria processos e faz acontecer. Sua força é tirar a ideia do papel no prazo.',t:['Gestão de projetos numa empresa júnior','Liderar a organização de um grupo de estudo','Estágio em indústria, em processos e operação']}
+ {n:'Comunicador(a)',d:'Você ganha energia explicando, apresentando e conectando pessoas.',t:['Processo seletivo da empresa júnior, em projetos ou marketing','Apresentar trabalhos e seminários sempre que puder','Ajudar a organizar um evento do curso']},
+ {n:'Negociador(a)',d:'Você gosta de convencer, vender ideias e fechar acordos.',t:['Área comercial de uma empresa júnior','Estágio numa startup, perto de clientes','Competições de negócios e de inovação']},
+ {n:'Criador(a) de laboratório',d:'Você se concentra fácil e gosta de entender a fundo como as coisas funcionam.',t:['Conversar com professores sobre iniciação científica','Visitar laboratórios do departamento','Ler um artigo científico por mês da área que te interessa']},
+ {n:'Planejador(a)-executor(a)',d:'Você organiza, cria processos e tira a ideia do papel no prazo.',t:['Gestão de projetos numa empresa júnior','Liderar a organização de um grupo de estudo','Estágio em indústria, em processos e operação']}
 ];
 const Q=[
  ['Num trabalho em grupo, você naturalmente…',['apresenta para a turma','convence o grupo da melhor ideia','pesquisa e faz a parte técnica','divide tarefas e cobra prazos']],
@@ -227,37 +327,23 @@ const Q=[
  ['Daqui a cinco anos, você se imagina…',['liderando pessoas e comunicando','à frente de negócios e clientes','pesquisando ou criando produtos','gerindo processos e projetos']]
 ];
 let ans=store.get('quiz',[]),qi=0;
-function renderQ(){const w=$('#qwrap');w.innerHTML=Q.map((q,i)=>`<div class="q" data-i="${i}"><h3>${q[0]}</h3>${q[1].map((o,j)=>`<button class="opt" data-j="${j}">${o}</button>`).join('')}</div>`).join('');
-  w.addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;ans[qi]=+b.dataset.j;store.set('quiz',ans);qi++;show()})}
+$('#qwrap').innerHTML=Q.map((q,i)=>`<div class="q" data-i="${i}"><h3>${q[0]}</h3>${q[1].map((o,j)=>`<button class="opt" data-j="${j}">${o}</button>`).join('')}</div>`).join('');
+$('#qwrap').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;ans[qi]=+b.dataset.j;store.set('quiz',ans);qi++;show()});
 function show(){const done=qi>=Q.length;$$('.q').forEach((q,i)=>q.classList.toggle('on',!done&&i===qi));$('#qn').textContent=done?'Resultado':`Pergunta ${qi+1} de ${Q.length}`;$('#qbar').style.width=(Math.min(qi,Q.length)/Q.length*100)+'%';$('#qback').style.visibility=qi>0?'visible':'hidden';$('#result').classList.toggle('on',done);if(done)result()}
-function result(){const c=[0,0,0,0];ans.slice(0,Q.length).forEach(a=>c[a]++);const m=Math.max(...c),w=c.indexOf(m);$('#rname').textContent=P[w].n;$('#rdesc').textContent=P[w].d;
-  $('#rbars').innerHTML=P.map((p,i)=>`<div>${p.n}<span class="b"><i style="width:${c[i]/Q.length*100}%"></i></span>${Math.round(c[i]/Q.length*100)}%</div>`).join('');
-  $('#rtry').innerHTML=P[w].t.map(x=>`<li>${x}</li>`).join('')}
-$('#qback').onclick=()=>{if(qi>0){qi--;show()}};
-$('#qagain').onclick=()=>{ans=[];store.set('quiz',ans);qi=0;show()};
-renderQ();qi=ans.length>=Q.length?Q.length:0;if(qi<Q.length)ans=[];show();
+function result(){const c=[0,0,0,0];ans.slice(0,Q.length).forEach(a=>c[a]++);const w=c.indexOf(Math.max(...c));$('#rname').textContent=P[w].n;$('#rdesc').textContent=P[w].d;
+  $('#rbars').innerHTML=P.map((p,i)=>`<div>${p.n}<span class="b"><i style="width:${c[i]/Q.length*100}%"></i></span>${Math.round(c[i]/Q.length*100)}%</div>`).join('');$('#rtry').innerHTML=P[w].t.map(x=>`<li>${x}</li>`).join('')}
+$('#qback').onclick=()=>{if(qi>0){qi--;show()}};$('#qagain').onclick=()=>{ans=[];store.set('quiz',ans);qi=0;show()};
+qi=ans.length>=Q.length?Q.length:0;if(qi<Q.length)ans=[];show();
 
-/* plan */
 const plan=store.get('plan',{});let st;
 $$('textarea[data-k]').forEach(t=>{t.value=plan[t.dataset.k]||'';t.addEventListener('input',()=>{plan[t.dataset.k]=t.value;store.set('plan',plan);const s=$('#saved');s.classList.add('on');clearTimeout(st);st=setTimeout(()=>s.classList.remove('on'),1500)})});
-$('#copyplan').onclick=async()=>{const txt=`MINHA ROTA — Engenharia Química UFSC\n\nCurto prazo (este ano):\n${plan.curto||'—'}\n\nMédio prazo (até a metade do curso):\n${plan.medio||'—'}\n\nLongo prazo (na formatura):\n${plan.longo||'—'}`;
-  try{await navigator.clipboard.writeText(txt);toast('Plano copiado! Cole nas suas notas.')}catch(e){toast('Não consegui copiar. Selecione o texto e copie manualmente.')}};
-$('#clearplan').onclick=()=>{$$('textarea[data-k]').forEach(t=>{t.value='';plan[t.dataset.k]=''});store.set('plan',plan);toast('Plano limpo')};
+$('#copyplan').onclick=async()=>{const v=k=>plan[k]||'—';const txt=`MINHA ROTA NA UFSC\n\nComo quero ser reconhecido(a): ${v('q1')}\nLegado que quero deixar: ${v('q2')}\nO que vai brilhar no meu currículo: ${v('q3')}\n\nCurto prazo (este ano): ${v('curto')}\nMédio prazo (metade do curso): ${v('medio')}\nLongo prazo (formatura): ${v('longo')}`;
+  try{await navigator.clipboard.writeText(txt);toast('Rota copiada! Cole nas suas notas.')}catch(e){toast('Não consegui copiar. Selecione o texto e copie manualmente.')}};
+$('#clearplan').onclick=()=>{$$('textarea[data-k]').forEach(t=>{t.value='';plan[t.dataset.k]=''});store.set('plan',plan);toast('Rota limpa')};
 
-/* checklist */
-const C=[
- ['Conhecer a empresa júnior do curso','A CONAQ é a EJ de Engenharia Química e de Alimentos. Descubra quando abre o próximo processo seletivo.'],
- ['Conversar com um(a) veterano(a) de cada área','Indústria, pesquisa, consultoria, startup: pergunte como foi a rota de cada um.'],
- ['Visitar um laboratório do departamento','Pergunte sobre iniciação científica, mesmo que ainda não seja a hora.'],
- ['Montar uma rotina semanal de estudo','Blocos fixos, revisão e listas antes da prova.'],
- ['Garantir a base de cálculo e química','É a fundação de todo o resto do curso.'],
- ['Criar ou atualizar o seu LinkedIn','Foto, título e o que você está buscando.'],
- ['Ir a um evento ou palestra fora da sala','Feiras, semanas acadêmicas, eventos de inovação.'],
- ['Anotar, todo mês, o que te dá energia e o que te drena','É assim que o autoconhecimento vira decisão.'],
- ['Escolher uma experiência para testar no próximo semestre','Testar e descartar também é avançar.']
-];
+const C=[['Montar uma rotina semanal de estudo','Blocos fixos, revisão e listas antes da prova.','1º sem.'],['Garantir a base de cálculo e química','É a fundação do resto do curso.','1º sem.'],['Conversar com um(a) veterano(a) de cada área','Indústria, pesquisa, consultoria, startup.','1º sem.'],['Conhecer a empresa júnior e o centro acadêmico','CONAQ e CALEQA.','1º sem.'],['Criar ou atualizar o LinkedIn','Foto, título e o que você está buscando.','1º sem.'],['Ir a um evento ou semana acadêmica','Feiras, palestras e visitas técnicas.','1º ano'],['Fazer um processo seletivo','Empresa júnior, projeto ou estágio.','2º sem.'],['Visitar um laboratório do departamento','Pergunte sobre iniciação científica.','1º ano'],['Anotar, todo mês, o que te dá energia e o que te drena','É assim que o autoconhecimento vira decisão.','sempre'],['Escolher uma experiência para testar no próximo semestre','Testar e descartar também é avançar.','fim do ano']];
 let done=store.get('chk',[]);
-function renderC(){$('#chks').innerHTML=C.map((c,i)=>`<button class="chk ${done.includes(i)?'done':''}" data-i="${i}"><span class="box">${done.includes(i)?'✓':''}</span><span class="t">${c[0]}<small>${c[1]}</small></span></button>`).join('');const p=Math.round(done.length/C.length*100);$('#pbar').style.width=p+'%';$('#ppct').textContent=p+'%'}
+function renderC(){$('#chks').innerHTML=C.map((c,i)=>`<button class="chk ${done.includes(i)?'done':''}" data-i="${i}"><span class="box2">${done.includes(i)?'✓':''}</span><span class="t">${c[0]}<small>${c[1]}</small></span><span class="ph">${c[2]}</span></button>`).join('');const p=Math.round(done.length/C.length*100);$('#pbar').style.width=p+'%';$('#ppct').textContent=p+'%'}
 $('#chks').addEventListener('click',e=>{const b=e.target.closest('.chk');if(!b)return;const i=+b.dataset.i;done=done.includes(i)?done.filter(x=>x!==i):[...done,i];store.set('chk',done);renderC();if(done.length===C.length)toast('Checklist completo! 🎉')});
 renderC();
 })();

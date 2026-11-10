@@ -1,4 +1,4 @@
-# De Jaborá à UFSC — palestra e Guia do Calouro
+# De Jaborá à UFSC — palestra e Manual do Calouro
 
 Material da palestra **"De Jaborá à UFSC"**, de Kaue Grotto, para os calouros de Engenharia Química da UFSC.
 
@@ -6,12 +6,16 @@ Material da palestra **"De Jaborá à UFSC"**, de Kaue Grotto, para os calouros 
 
 | Pasta / arquivo | O que é |
 |---|---|
-| `index.html` | **Guia do Calouro**: o material interativo para os alunos (abre bem no celular) |
+| `index.html` | **Manual do Calouro**: roteiro semestre a semestre, mapa de oportunidades, dicas, teste de perfil e rota (abre bem no celular) |
 | `caderno-minha-rota.html` | **Caderno para preencher**: os alunos respondem no celular ou no computador e salvam em PDF ou baixam as respostas |
 | `apresentacao/` | **A palestra**: apresentação HTML interativa com fotos, vídeos e o globo com zoom em Jaborá |
 | `PROMPT.md` | Prompt para criar uma apresentação parecida com o Claude |
 
-## Guia do Calouro
+## Manual do Calouro
+
+- **Semestre a semestre:** o que eu fiz, o que você pode fazer e um sinal de que está no caminho certo
+- **Mapa de oportunidades:** empresa júnior, iniciação científica, estágio, startups, mentoria, extensão
+- **Processo seletivo, estudo, tombos e sua marca:** dicas práticas a partir da trajetória
 
 - **A história em 1 minuto:** a trajetória de Jaborá (SC) até a Fundação CERTI
 - **Teste de perfil:** seis perguntas para entender o seu perfil hoje
