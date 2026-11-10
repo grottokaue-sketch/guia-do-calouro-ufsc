@@ -1,8 +1,16 @@
-# Guia do Calouro — De Jaborá à UFSC
+# De Jaborá à UFSC — palestra e Guia do Calouro
 
-Material de apoio da palestra **"De Jaborá à UFSC"**, de Kaue Grotto, para os calouros de Engenharia Química da UFSC.
+Material da palestra **"De Jaborá à UFSC"**, de Kaue Grotto, para os calouros de Engenharia Química da UFSC.
 
-## O que tem no guia
+## O que tem aqui
+
+| Pasta / arquivo | O que é |
+|---|---|
+| `index.html` | **Guia do Calouro**: o material interativo para os alunos (abre bem no celular) |
+| `apresentacao/` | **A palestra**: apresentação HTML interativa com fotos, vídeos e o globo com zoom em Jaborá |
+| `PROMPT.md` | Prompt para criar uma apresentação parecida com o Claude |
+
+## Guia do Calouro
 
 - **A história em 1 minuto:** a trajetória de Jaborá (SC) até a Fundação CERTI
 - **Teste de perfil:** seis perguntas para entender o seu perfil hoje
@@ -11,9 +19,13 @@ Material de apoio da palestra **"De Jaborá à UFSC"**, de Kaue Grotto, para os 
 - **Métodos de estudo** que funcionaram na prática
 - **As três perguntas** para levar da palestra
 
-## Como acessar
+## Como apresentar a palestra
 
-Abra o arquivo `index.html` no navegador ou acesse a versão publicada pelo GitHub Pages.
+1. Abra `apresentacao/index.html` no navegador (Chrome ou Edge). Funciona sem internet: o d3 e o gerador de QR code estão em `apresentacao/media/`.
+2. Atalhos: **→** avança · **←** volta · **F** tela cheia · **N** notas do apresentador · **O** visão geral · **E** editar textos.
+3. A capa fica na tela enquanto o público entra. O primeiro **→** começa o globo.
+
+Estrutura em 4 atos: **Descobrir** (antes da UFSC) → **Testar** (a UFSC como laboratório) → **Consolidar** (experiência vira carreira) → **Vocês**. A "bagagem" de habilidades vai se formando no rodapé ao longo da história.
 
 ## Contato
 
