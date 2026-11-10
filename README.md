@@ -2,6 +2,11 @@
 
 Material da palestra **"De Jaborá à UFSC"**, de Kaue Grotto, para os calouros de Engenharia Química da UFSC.
 
+## Links abertos
+
+- **Manual do Calouro:** https://grottokaue-sketch.github.io/guia-do-calouro-ufsc/
+- **Apresentação:** https://grottokaue-sketch.github.io/guia-do-calouro-ufsc/apresentacao/
+
 ## O que tem aqui
 
 | Pasta / arquivo | O que é |
