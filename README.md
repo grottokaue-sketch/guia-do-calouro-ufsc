@@ -7,6 +7,7 @@ Material da palestra **"De Jaborá à UFSC"**, de Kaue Grotto, para os calouros 
 | Pasta / arquivo | O que é |
 |---|---|
 | `index.html` | **Guia do Calouro**: o material interativo para os alunos (abre bem no celular) |
+| `caderno-minha-rota.html` | **Caderno para preencher**: os alunos respondem no celular ou no computador e salvam em PDF ou baixam as respostas |
 | `apresentacao/` | **A palestra**: apresentação HTML interativa com fotos, vídeos e o globo com zoom em Jaborá |
 | `PROMPT.md` | Prompt para criar uma apresentação parecida com o Claude |
 

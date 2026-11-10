@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minha Rota na UFSC — Caderno do Calouro</title>
+<style>
+:root{--navy:#042c53;--ocean:#143f69;--azure:#3a6ea5;--sky:#9cc3e6;--ice:#d6e6f5;--mist:#eef3f8;--fog:#e1e8ef;--ink:#0e2236;--slate:#5a6b7d;--line:#cfd8e1;--ok:#2e7d5b;
+--fd:"Helvetica Neue",Arial,sans-serif;--fb:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fb);color:var(--ink);background:var(--mist);line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input,textarea{font:inherit;color:inherit}
+.wrap{max-width:820px;margin:0 auto;padding:0 18px}
+header{background:var(--navy);color:var(--mist);padding:44px 0 52px;position:relative;overflow:hidden}
+header svg{position:absolute;right:-1px;bottom:-1px;width:200px;height:200px;opacity:.7}
+header .wrap{position:relative;z-index:1}
+.eyebrow{font:700 12px var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--azure)}
+header .eyebrow{color:var(--sky)}
+h1{font:800 clamp(36px,8vw,60px)/1 var(--fd);letter-spacing:-.03em;margin:12px 0 14px}
+h1 em{font-style:normal;color:var(--sky)}
+header p{color:var(--ice);font-size:17px;max-width:560px}
+.bar{position:sticky;top:0;z-index:5;background:rgba(238,243,248,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:14px;padding:12px 18px}
+.bar .prog{flex:1;height:10px;background:var(--fog);border-radius:9px;overflow:hidden}
+.bar .prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ocean),var(--azure));transition:width .4s}
+.bar b{font:800 18px var(--fd);color:var(--ocean);min-width:48px;text-align:right}
+.bar small{font-size:12px;color:var(--ok);font-weight:700;opacity:0;transition:.3s}.bar small.on{opacity:1}
+section{margin:22px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}
+h2{font:700 26px/1.15 var(--fd);color:var(--navy);margin:6px 0 6px;letter-spacing:-.01em}
+.help{color:var(--slate);font-size:15px;margin-bottom:16px}
+label.q{display:block;font-weight:700;color:var(--navy);margin:16px 0 6px;font-size:16px}
+label.q span{display:block;font-weight:400;color:var(--slate);font-size:14px}
+input[type=text],input[type=date],textarea{width:100%;border:2px solid var(--line);border-radius:12px;padding:11px 13px;background:#fff;font-size:16px}
+textarea{min-height:84px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--azure)}
+.row{display:grid;gap:12px}
+@media(min-width:640px){.row.two{grid-template-columns:1fr 1fr}.row.three{grid-template-columns:1fr 1fr 1fr}}
+.opts{display:grid;gap:10px}
+@media(min-width:640px){.opts{grid-template-columns:1fr 1fr}}
+.opt{display:flex;gap:12px;align-items:flex-start;border:2px solid var(--line);border-radius:14px;padding:13px 14px;cursor:pointer;background:#fff;transition:.15s}
+.opt input{margin-top:4px;accent-color:var(--ocean);width:18px;height:18px}
+.opt b{display:block;color:var(--navy)}.opt small{color:var(--slate)}
+.opt:has(input:checked){border-color:var(--ocean);background:var(--ice)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-size:15px;font-weight:600;color:var(--navy);cursor:pointer;transition:.15s}
+.chip.on{background:var(--ocean);border-color:var(--ocean);color:#fff}
+.chip.want{background:var(--ice);border-color:var(--azure);color:var(--navy)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--slate);margin:4px 0 12px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+.horizon{border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:14px;background:var(--mist)}
+.horizon.long{background:var(--ice);border-color:var(--ice)}
+.horizon h3{font:700 19px var(--fd);color:var(--navy)}
+.horizon .k{font:700 11px var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--azure)}
+.horizon label.q{font-size:14px;margin-top:10px}
+.chk{display:flex;gap:12px;align-items:flex-start;padding:11px 4px;border-bottom:1px solid var(--fog);cursor:pointer}
+.chk:last-child{border:none}
+.chk input{margin-top:3px;width:20px;height:20px;accent-color:var(--ok);flex:none}
+.chk small{display:block;color:var(--slate)}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:12px 18px;border-radius:999px;background:var(--ocean);color:#fff}
+.btn:hover{background:var(--azure)}
+.btn.ghost{background:transparent;color:var(--ocean);box-shadow:inset 0 0 0 2px var(--ocean)}
+.btn.ghost:hover{background:var(--ice)}
+.btn.danger{background:transparent;color:#b83a3a;box-shadow:inset 0 0 0 2px #e5b8b8}
+footer{background:var(--navy);color:var(--ice);padding:32px 0 44px;margin-top:30px;font-size:15px}
+footer b{color:#fff}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);background:var(--navy);color:#fff;padding:12px 18px;border-radius:12px;font-weight:600;font-size:14px;opacity:0;transition:.3s;pointer-events:none;z-index:9}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+/* impressão: vira um caderno limpo em PDF */
+@media print{
+  .bar,.noprint,footer .actions{display:none!important}
+  body{background:#fff}
+  header{background:#fff;color:var(--navy);padding:0 0 10px;border-bottom:3px solid var(--navy)}
+  header svg{display:none}header p{color:var(--slate)}header .eyebrow{color:var(--azure)}h1 em{color:var(--ocean)}
+  .card{border:1px solid #bbb;break-inside:avoid;page-break-inside:avoid}
+  textarea,input[type=text],input[type=date]{border:1px solid #bbb}
+  textarea{min-height:0;height:auto;overflow:visible}
+  section{margin:12px 0}
+  footer{background:#fff;color:var(--slate);padding:10px 0}
+}
+</style>
+</head>
+<body>
+<header>
+  <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M0 200 A200 200 0 0 1 200 0 L200 67 A133 133 0 0 0 67 200 Z" fill="#143f69"/></svg>
+  <div class="wrap">
+    <div class="eyebrow">Palestra "De Jaborá à UFSC" · Caderno do calouro</div>
+    <h1>Minha rota <em>na UFSC</em></h1>
+    <p>Responda com calma. Tudo fica salvo neste aparelho enquanto você preenche. No fim, salve em PDF ou baixe as suas respostas.</p>
+  </div>
+</header>
+
+<div class="bar"><div class="wrap"><div class="prog"><i id="pbar"></i></div><b id="ppct">0%</b><small id="saved">✓ salvo</small></div></div>
+
+<main class="wrap" id="form">
+
+<section class="card">
+  <div class="eyebrow">Sobre você</div>
+  <h2>Quem está traçando esta rota?</h2>
+  <div class="row two">
+    <div><label class="q" for="nome">Nome</label><input type="text" id="nome" data-f="nome" placeholder="Seu nome"></div>
+    <div><label class="q" for="curso">Curso e fase</label><input type="text" id="curso" data-f="curso" placeholder="Ex.: Engenharia Química, 1ª fase"></div>
+  </div>
+  <label class="q" for="origem">De onde você vem?<span>Cidade, escola, quem veio antes de você.</span></label>
+  <textarea id="origem" data-f="origem" placeholder="Ex.: Sou de ..., estudei em escola ..., sou a primeira pessoa da família a ..."></textarea>
+</section>
+
+<section class="card">
+  <div class="eyebrow">01 · Descobrir</div>
+  <h2>Qual é o seu perfil hoje?</h2>
+  <p class="help">Escolha o que mais combina com você agora. Não existe resposta certa.</p>
+  <div class="opts" id="perfil">
+    <label class="opt"><input type="radio" name="perfil" value="Comunicador(a)"><span><b>Comunicador(a)</b><small>Explica, conecta e apresenta.</small></span></label>
+    <label class="opt"><input type="radio" name="perfil" value="Negociador(a)"><span><b>Negociador(a)</b><small>Vende ideias e fecha parcerias.</small></span></label>
+    <label class="opt"><input type="radio" name="perfil" value="Criador(a) de laboratório"><span><b>Criador(a) de laboratório</b><small>Concentrado(a), testando, criando.</small></span></label>
+    <label class="opt"><input type="radio" name="perfil" value="Planejador(a)-executor(a)"><span><b>Planejador(a)-executor(a)</b><small>Organiza e faz acontecer.</small></span></label>
+  </div>
+  <div class="row two">
+    <div><label class="q" for="energia">O que te dá energia?</label><textarea id="energia" data-f="energia" placeholder="Atividades, temas, pessoas…"></textarea></div>
+    <div><label class="q" for="drena">O que te drena?</label><textarea id="drena" data-f="drena" placeholder="O que você evita ou cansa rápido…"></textarea></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="eyebrow">02 · Bagagem</div>
+  <h2>Que habilidades você já tem e quais quer construir?</h2>
+  <p class="help">Toque uma vez para marcar como <b>já tenho</b> e de novo para <b>quero construir</b>. Um terceiro toque desmarca.</p>
+  <div class="legend"><span><i style="background:var(--ocean)"></i>Já tenho</span><span><i style="background:var(--ice);border:2px solid var(--azure)"></i>Quero construir</span></div>
+  <div class="chips" id="skills"></div>
+</section>
+
+<section class="card">
+  <div class="eyebrow">03 · As três perguntas</div>
+  <h2>O que você quer ser quando crescer, como profissional?</h2>
+  <label class="q" for="p1">Como você quer ser reconhecido(a)?</label><textarea id="p1" data-f="p1"></textarea>
+  <label class="q" for="p2">Que legado e que história você quer deixar?</label><textarea id="p2" data-f="p2"></textarea>
+  <label class="q" for="p3">O que vai brilhar os olhos de quem ler o seu currículo?</label><textarea id="p3" data-f="p3"></textarea>
+</section>
+
+<section class="card">
+  <div class="eyebrow">04 · Testar e consolidar</div>
+  <h2>Minha rota em três horizontes</h2>
+  <p class="help">Para cada prazo: um objetivo, a primeira ação concreta e até quando.</p>
+  <div class="horizon"><div class="k">Curto prazo</div><h3>Este ano</h3>
+    <label class="q" for="c1">Objetivo</label><textarea id="c1" data-f="c1" placeholder="Ex.: entrar no processo seletivo da empresa júnior"></textarea>
+    <div class="row two"><div><label class="q" for="c2">Primeira ação</label><input type="text" id="c2" data-f="c2" placeholder="Ex.: ir ao evento de apresentação"></div><div><label class="q" for="c3">Até quando</label><input type="date" id="c3" data-f="c3"></div></div></div>
+  <div class="horizon"><div class="k">Médio prazo</div><h3>Até a metade do curso</h3>
+    <label class="q" for="m1">Objetivo</label><textarea id="m1" data-f="m1" placeholder="Ex.: testar um laboratório ou uma startup"></textarea>
+    <div class="row two"><div><label class="q" for="m2">Primeira ação</label><input type="text" id="m2" data-f="m2"></div><div><label class="q" for="m3">Até quando</label><input type="date" id="m3" data-f="m3"></div></div></div>
+  <div class="horizon long"><div class="k">Longo prazo</div><h3>Na formatura</h3>
+    <label class="q" for="l1">Objetivo</label><textarea id="l1" data-f="l1" placeholder="Ex.: ser referência em processos sustentáveis"></textarea>
+    <div class="row two"><div><label class="q" for="l2">Primeira ação</label><input type="text" id="l2" data-f="l2"></div><div><label class="q" for="l3">Até quando</label><input type="date" id="l3" data-f="l3"></div></div></div>
+</section>
+
+<section class="card">
+  <div class="eyebrow">05 · Primeiro ano</div>
+  <h2>Checklist do calouro</h2>
+  <div id="chks"></div>
+</section>
+
+<section class="card">
+  <div class="eyebrow">06 · Compromisso</div>
+  <h2>Uma carta para você mesmo(a)</h2>
+  <label class="q" for="carta">Daqui a cinco anos, na formatura, eu quero olhar para trás e ver que…</label>
+  <textarea id="carta" data-f="carta" style="min-height:130px"></textarea>
+  <div class="row two">
+    <div><label class="q" for="assin">Assinatura</label><input type="text" id="assin" data-f="assin" placeholder="Seu nome"></div>
+    <div><label class="q" for="data">Data</label><input type="date" id="data" data-f="data"></div>
+  </div>
+</section>
+
+<section class="card noprint">
+  <div class="eyebrow">Guardar</div>
+  <h2>Salve a sua rota</h2>
+  <p class="help">Em PDF, escolha "Salvar como PDF" na janela de impressão. No celular, use o botão de compartilhar do navegador e depois "Imprimir".</p>
+  <div class="actions">
+    <button class="btn" id="bpdf">Salvar em PDF</button>
+    <button class="btn ghost" id="bdown">Baixar minhas respostas</button>
+    <button class="btn ghost" id="bcopy">Copiar texto</button>
+    <button class="btn danger" id="bclear">Limpar tudo</button>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><b>De Jaborá à UFSC</b> · Kaue Grotto · Instagram @kauegrotto · LinkedIn Kaue Grotto<br>"A pergunta não é se vocês vão chegar longe. É que marca vocês vão deixar no caminho."</div></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const KEY='minha-rota-ufsc-v1';
+let st={};try{st=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}const s=$('#saved');s.classList.add('on');clearTimeout(s._t);s._t=setTimeout(()=>s.classList.remove('on'),1200);progress()}
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2400)}
+
+const SK=['Disciplina','Método de estudo','Comunicação','Autoconhecimento','Resiliência','Iniciativa','Protagonismo','Trabalho em equipe','Liderança','Raciocínio lógico','Base técnica','Organização','Negociação','Escrita','Inglês','Programação','Gestão de projetos','Criatividade'];
+st.skills=st.skills||{};
+$('#skills').innerHTML=SK.map(s=>`<button type="button" class="chip" data-s="${s}">${s}</button>`).join('');
+function paintSkills(){$$('.chip').forEach(c=>{const v=st.skills[c.dataset.s];c.classList.toggle('on',v===1);c.classList.toggle('want',v===2)})}
+$('#skills').addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;const k=c.dataset.s;st.skills[k]=((st.skills[k]||0)+1)%3;if(!st.skills[k])delete st.skills[k];paintSkills();save()});
+
+const CK=[['Conhecer a empresa júnior do curso','A CONAQ é a EJ de Engenharia Química e de Alimentos.'],['Conversar com um(a) veterano(a) de cada área','Indústria, pesquisa, consultoria, startup.'],['Visitar um laboratório do departamento','Pergunte sobre iniciação científica.'],['Montar uma rotina semanal de estudo','Blocos fixos, revisão e listas antes da prova.'],['Garantir a base de cálculo e química','É a fundação do resto do curso.'],['Criar ou atualizar o LinkedIn','Foto, título e o que você está buscando.'],['Ir a um evento fora da sala','Feiras, semanas acadêmicas, eventos de inovação.'],['Escolher uma experiência para testar no próximo semestre','Testar e descartar também é avançar.']];
+st.chk=st.chk||[];
+$('#chks').innerHTML=CK.map((c,i)=>`<label class="chk"><input type="checkbox" data-i="${i}"><span>${c[0]}<small>${c[1]}</small></span></label>`).join('');
+$$('#chks input').forEach(x=>{x.checked=st.chk.includes(+x.dataset.i);x.addEventListener('change',()=>{const i=+x.dataset.i;st.chk=x.checked?[...new Set([...st.chk,i])]:st.chk.filter(v=>v!==i);save()})});
+
+$$('[data-f]').forEach(el=>{if(st[el.dataset.f])el.value=st[el.dataset.f];el.addEventListener('input',()=>{st[el.dataset.f]=el.value;fit(el);save()});fit(el)});
+$$('input[name=perfil]').forEach(r=>{r.checked=st.perfil===r.value;r.addEventListener('change',()=>{st.perfil=r.value;save()})});
+function fit(el){if(el.tagName==='TEXTAREA'){el.style.height='auto';el.style.height=Math.max(el.scrollHeight+4,84)+'px'}}
+
+const REQ=['nome','origem','energia','drena','p1','p2','p3','c1','c2','m1','m2','l1','l2','carta'];
+function progress(){let n=REQ.filter(k=>(st[k]||'').trim()).length+(st.perfil?1:0)+(Object.keys(st.skills||{}).length?1:0);const t=REQ.length+2;const p=Math.round(n/t*100);$('#pbar').style.width=p+'%';$('#ppct').textContent=p+'%'}
+progress();
+
+const fdate=v=>v?v.split('-').reverse().join('/'):'—';
+function asText(){const sk=st.skills||{};const has=Object.keys(sk).filter(k=>sk[k]===1),want=Object.keys(sk).filter(k=>sk[k]===2);const v=k=>(st[k]||'—').trim()||'—';
+return `MINHA ROTA NA UFSC — ${v('nome')} (${v('curso')})
+
+DE ONDE EU VENHO
+${v('origem')}
+
+PERFIL HOJE: ${st.perfil||'—'}
+Me dá energia: ${v('energia')}
+Me drena: ${v('drena')}
+
+BAGAGEM
+Já tenho: ${has.join(', ')||'—'}
+Quero construir: ${want.join(', ')||'—'}
+
+AS TRÊS PERGUNTAS
+1. Como quero ser reconhecido(a): ${v('p1')}
+2. Legado que quero deixar: ${v('p2')}
+3. O que vai brilhar no meu currículo: ${v('p3')}
+
+MINHA ROTA
+Curto prazo (este ano): ${v('c1')}
+  Primeira ação: ${v('c2')} · até ${fdate(st.c3)}
+Médio prazo (metade do curso): ${v('m1')}
+  Primeira ação: ${v('m2')} · até ${fdate(st.m3)}
+Longo prazo (formatura): ${v('l1')}
+  Primeira ação: ${v('l2')} · até ${fdate(st.l3)}
+
+CHECKLIST: ${(st.chk||[]).length} de ${CK.length} feitos
+
+CARTA PARA MIM
+${v('carta')}
+— ${v('assin')}, ${fdate(st.data)}`}
+
+$('#bpdf').onclick=()=>{$$('textarea').forEach(fit);try{window.print()}catch(e){toast('Use o menu do navegador > Imprimir > Salvar como PDF')}};
+$('#bcopy').onclick=async()=>{try{await navigator.clipboard.writeText(asText());toast('Copiado! Cole nas suas notas.')}catch(e){toast('Não consegui copiar automaticamente.')}};
+$('#bdown').onclick=()=>{const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  const html=`<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Minha rota na UFSC</title><style>body{font:16px/1.6 "Segoe UI",Roboto,Arial,sans-serif;max-width:760px;margin:30px auto;padding:0 18px;color:#0e2236;background:#eef3f8}pre{white-space:pre-wrap;background:#fff;border:1px solid #cfd8e1;border-radius:16px;padding:24px;font:inherit}h1{color:#042c53}</style></head><body><h1>Minha rota na UFSC</h1><pre>${esc(asText())}</pre></body></html>`;
+  const name='minha-rota-'+((st.nome||'calouro').trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'calouro')+'.html';
+  try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download=name;document.body.appendChild(a);a.click();a.remove();toast('Arquivo baixado: '+name)}catch(e){toast('Não consegui baixar. Use "Copiar texto".')}};
+let arm=false;$('#bclear').onclick=()=>{if(!arm){arm=true;$('#bclear').textContent='Toque de novo para apagar';setTimeout(()=>{arm=false;$('#bclear').textContent='Limpar tudo'},3000);return}
+  st={skills:{},chk:[]};save();$$('[data-f]').forEach(el=>{el.value='';fit(el)});$$('input[type=radio],#chks input').forEach(x=>x.checked=false);paintSkills();arm=false;$('#bclear').textContent='Limpar tudo';toast('Tudo apagado')};
+paintSkills();
+})();
+</script>
+</body>
+</html>
